@@ -16,16 +16,28 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
+                {{-- new admin brand--}}
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link href="{{ route('admin.brands.index') }}" :active="request()->routeIs('admin.brands.index')">
                       {{ __('Brand') }}
                     </x-nav-link>
                   </div>
-                  <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                   {{-- new admin type--}}
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-nav-link href="{{ route('admin.types.index') }}" :active="request()->routeIs('admin.types.index')">
                       {{ __('Type') }}
                     </x-nav-link>
-                  </div>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link href="{{ route('admin.items.index') }}" :active="request()->routeIs('admin.items.index')">
+                      {{ __('Item') }}
+                    </x-nav-link>
+                </div>
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                    <x-nav-link href="{{ route('admin.bookings.index') }}" :active="request()->routeIs('admin.bookings.index')">
+                      {{ __('Booking') }}
+                    </x-nav-link>
+                </div>
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
@@ -145,20 +157,29 @@
     </div>
 
     <!-- Responsive Navigation Menu -->
-   
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link href="{{ route('admin.dashboard') }}" :active="request()->routeIs('admin.dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
         </div>
-        <x-responsive-nav-link href="{{ route('admin.brands.index') }}" :active="request()->routeIs('admin.brands.index')">
+        {{-- new brands--}}
+            <x-responsive-nav-link href="{{ route('admin.brands.index') }}" :active="request()->routeIs('admin.brands.index')">
             {{ __('Brand') }}
           </x-responsive-nav-link>
-        <x-responsive-nav-link href="{{ route('admin.brands.index') }}" :active="request()->routeIs('admin.types.index')">
+           {{-- new types--}}
+           <x-responsive-nav-link href="{{ route('admin.types.index') }}" :active="request()->routeIs('admin.types.index')">
             {{ __('Type') }}
-            </x-responsive-nav-link>
-        
+          </x-responsive-nav-link>
+
+          <x-responsive-nav-link href="{{ route('admin.items.index') }}" :active="request()->routeIs('admin.items.index')">
+            {{ __('Item') }}
+          </x-responsive-nav-link>
+
+          <x-responsive-nav-link href="{{ route('admin.bookings.index') }}" :active="request()->routeIs('admin.bookings.index')">
+            {{ __('Booking') }}
+          </x-responsive-nav-link>
+
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="flex items-center px-4">
@@ -191,7 +212,7 @@
                     @csrf
 
                     <x-responsive-nav-link href="{{ route('logout') }}"
-                                @click.prevent="$root.submit();">
+                                   @click.prevent="$root.submit();">
                         {{ __('Log Out') }}
                     </x-responsive-nav-link>
                 </form>
